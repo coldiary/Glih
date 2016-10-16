@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+'use strict';
+
+var program = require('commander');
+
+program
+.version('1.7')
+.option('-v, --verbose', 'Enable verbose mode', false)
+.option('-u, --user <user>', 'Set user', undefined)
+.option('-b, --baseurl <url>', 'Set baseurl', 'https://blih.epitech.eu/')
+.option('-t, --token <token>', 'Set token', undefined)
+.option('-U, --useragent <agent>', 'Set useragent', 'blih-' + program.version)
+.parse(process.argv);
+
+console.log(program);

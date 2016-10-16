@@ -1,0 +1,18 @@
+{
+  "name": "glih",
+  "version": "1.0.0",
+  "description": "javascript version of epitech's blih utility",
+  "main": "blih.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "glih": "blih.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.coldiary.eu:10022/coldiary/Glih.git"
+  },
+  "author": "sida_b",
+  "license": "ISC"
+}
