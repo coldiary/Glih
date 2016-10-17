@@ -14,5 +14,12 @@
     "url": "ssh://git@git.coldiary.eu:10022/coldiary/Glih.git"
   },
   "author": "sida_b",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "json-stable-stringify": "^1.0.1",
+    "prompt-sync": "^4.1.4",
+    "request": "^2.75.0",
+    "utf8": "^2.1.1"
+  }
 }
