@@ -80,17 +80,18 @@ class Repository extends Subcommand {
 		this.usage_message =`
 		Usage: ${process.argv[1]} [options] repository command ...
 		
-		Commands :
-		    create repo\t\t\t-- Create a repository named "repo"
-		    info repo\t\t\t-- Get the repository metadata
-		    getacl repo\t\t\t-- Get the acls set for the repository
-		    list\t\t\t-- List the repositories created
-		    setacl repo user [acl]\t-- Set (or remove) an acl for "user" on "repo"
+		Commands:
+		    create repo\t\tCreate a repository named "repo"
+		    info repo\t\t\tGet the repository metadata
+		    getacl repo\t\tGet the acls set for the repository
+		    list\t\t\tList the repositories created
+		    setacl repo user [acl]\tSet (or remove) an acl for "user" on "repo"
 		    \t\t\t\tACL format:
 		    \t\t\t\t\tr for read
 		    \t\t\t\t\tw for write
-		    \t\t\t\t\ta for admin`;
-		this.usage_message = this.usage_message.substr(3).replace(/\n\t\t/g, '\n');
+		    \t\t\t\t\ta for admin
+		`;
+		this.usage_message = '\n  ' + this.usage_message.substr(3).replace(/\n\t\t/g, '\n  ');
 	}
 
 	create(params) {
@@ -161,10 +162,11 @@ class SSHKey extends Subcommand {
 		Usage: ${process.argv[1]} [options] sshkey command ...
 		
 		Commands :
-		    upload [file]\t\t\t-- Upload a new ssh-key
-		    list\t\t\t\t-- List the ssh-keys
-		    delete [sshkey]\t\t\t-- Delete the sshkey with comment [sshkey]`;
-		this.usage_message = this.usage_message.substr(3).replace(/\n\t\t/g, '\n');
+		    upload [file]\t\t\tUpload a new ssh-key
+		    list\t\t\t\tList the ssh-keys
+		    delete [sshkey]\t\t\tDelete the sshkey with comment [sshkey]
+		`;
+		this.usage_message = '\n  ' + this.usage_message.substr(3).replace(/\n\t\t/g, '\n  ');
 	}
 
 	list() {
