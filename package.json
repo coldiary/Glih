@@ -2,16 +2,7 @@
   "name": "glih",
   "version": "1.0.0",
   "description": "javascript version of epitech's blih utility",
-  "main": "main.js",
-  "scripts": {
-    "glih": "blih.js",
-    "watch": "webpack --progress --watch",
-    "build": "webpack --optimize-minimize -p",
-    "run": "electron ."
-  },
-  "bin": {
-    "glih": "blih.js"
-  },
+  "bin": "./blih.js",
   "repository": {
     "type": "git",
     "url": "ssh://git@git.coldiary.eu:10022/coldiary/Glih.git"
@@ -20,23 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "commander": "^2.9.0",
-    "json-stable-stringify": "^1.0.1",
-    "material-ui": "^0.16.0",
     "prompt-sync": "^4.1.4",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "react-tap-event-plugin": "^1.0.0",
-    "request": "^2.75.0",
-    "utf8": "^2.1.1"
-  },
-  "devDependencies": {
-    "babel-preset-es2015": "^6.16.0",
-    "babel-preset-react": "^6.16.0"
-  },
-  "babel": {
-    "presets": [
-      "es2015",
-      "react"
-    ]
+    "utf8": "^2.1.1",
+    "json-stable-stringify": "^1.0.1",
+    "request": "^2.75.0"
   }
 }

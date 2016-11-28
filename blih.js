@@ -59,7 +59,7 @@ class Blih {
 	}
 
 	token_calc() {
-		return crypto.createHash('sha512').update(prompt(`${this._user}'s password: `, {echo: '*'}) || process.exit(1)).digest('hex');
+		return crypto.createHash('sha512').update(prompt(`${this._user}'s password: `, {echo: ''}) || process.exit(1)).digest('hex');
 	}
 }
 
@@ -81,15 +81,15 @@ class Repository extends Subcommand {
 		Usage: ${process.argv[1]} [options] repository command ...
 		
 		Commands:
-		    create repo\t\tCreate a repository named "repo"
-		    info repo\t\t\tGet the repository metadata
-		    getacl repo\t\tGet the acls set for the repository
-		    list\t\t\tList the repositories created
-		    setacl repo user [acl]\tSet (or remove) an acl for "user" on "repo"
-		    \t\t\t\tACL format:
-		    \t\t\t\t\tr for read
-		    \t\t\t\t\tw for write
-		    \t\t\t\t\ta for admin
+		    create repo\t\t\tCreate a repository named "repo"
+		    info repo\t\t\t\tGet the repository metadata
+		    getacl repo\t\t\tGet the acls set for the repository
+		    list\t\t\t\tList the repositories created
+		    setacl repo user [user...] [acl]\tSet (or remove) an acl for each "user" on "repo"
+		    \t\t\t\t\tACL format:
+		    \t\t\t\t\t\tr for read
+		    \t\t\t\t\t\tw for write
+		    \t\t\t\t\t\ta for admin
 		`;
 		this.usage_message = '\n  ' + this.usage_message.substr(3).replace(/\n\t\t/g, '\n  ');
 	}
@@ -138,10 +138,18 @@ class Repository extends Subcommand {
 		if (params.length < 2)
 			return this.usage();
 		const blih = new Blih(this.options);
-		blih.request({ path: `/repository/${params[0]}/acls`, method:'POST', data: {
-			user: params[1],
-			acl: params[2] || ''
-		}});
+		const repo = params.shift();
+		const rights = params.pop();
+		var users = params;
+		for (let user of users) {
+			blih.request({ 
+				path: `/repository/${repo}/acls`,
+				method:'POST', data: {
+					user: user,
+					acl: rights || ''
+				}
+			});
+		}
 	}
 
 	getacl(params) {
