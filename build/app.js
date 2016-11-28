@@ -18,7 +18,7 @@ var _MuiThemeProvider = require('material-ui/styles/MuiThemeProvider');
 
 var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
 
-var _WinBar = require('./WinBar');
+var _WinBar = require('WinBar');
 
 var _WinBar2 = _interopRequireDefault(_WinBar);
 
