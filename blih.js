@@ -16,7 +16,7 @@ class Blih {
 		this._user = options.user || this.get_user();
 		this._token = options.token || this.token_calc();
 		this._verbose = options.verbose || false;
-		this._userAgent = options.useragent || 'blih-' + program.version;
+		this._userAgent = options.useragent || 'blih-' + program.version();
 	}
 
 	sign_data(data) {
@@ -244,5 +244,5 @@ program.command('whoami')
 
 program.parse(process.argv);
 
-if (program.args.length === 0)
+if (program.args.length === 0 || !(program.args[0] instanceof program.Command))
 	program.help();
