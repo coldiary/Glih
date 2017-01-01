@@ -244,5 +244,5 @@ program.command('whoami')
 
 program.parse(process.argv);
 
-if (program.args.length === 0 || !(program.args[0] instanceof program.Command))
+if (program.args.length === 0 || !(program.args[1] instanceof program.Command))
 	program.help();
